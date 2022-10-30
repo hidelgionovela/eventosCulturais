@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . '/conexao.php'; 
+
 function create($sql = "", $dados = []) :int {
     global $db;
 
