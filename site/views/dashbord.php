@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D Navbar Animation</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="../css/styledashbord.css" />
   </head>
   <body>
     <div class="container">
       <div class="navbar">
         <div class="menu">
-          <h3 class="logo">Teatro<span>Gungu</span></h3>
+          <div class="lg1">
+            <h3 class="logo">Teatro<span>Gungu</span></h3></div>
+          
           <div class="hamburger-menu">
             <div class="bar"></div>
           </div>
@@ -22,12 +24,11 @@
           <header>
             <div class="overlay">
               <div class="inner">
-                <h2 class="title">Future is here</h2>
+                <h2 class="title">Companhia de Teatro Gungu</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Laudantium illum tenetur consequatur veritatis?
+                é uma companhia de teatro profissional de Maputo, Moçambique fundada em 1992 por Gilberto Mendes.
                 </p>
-                <button class="btn">Read more</button>
+                <button class="btn">Sair</button>
               </div>
             </div>
           </header>
@@ -43,24 +44,15 @@
             <a href="#" style="--i: 0.05s;">Home</a>
           </li>
           <li>
-            <a href="#" style="--i: 0.1s;">Services</a>
+            <a href="#" style="--i: 0.1s;">Eventos</a>
           </li>
           <li>
-            <a href="#" style="--i: 0.15s;">Portfolio</a>
-          </li>
-          <li>
-            <a href="#" style="--i: 0.2s;">Testimonials</a>
-          </li>
-          <li>
-            <a href="#" style="--i: 0.25s;">About</a>
-          </li>
-          <li>
-            <a href="#" style="--i: 0.3s;">Contact</a>
+            <a href="cadastro.php" style="--i: 0.15s;">Cadastrar Eventos</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="../js/appdashbord.js"></script>
   </body>
 </html>
