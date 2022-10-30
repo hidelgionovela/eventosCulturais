@@ -4,14 +4,15 @@
  * Instancia conexao com Mysql Database
  */
 
- define("HOST", "localhost");
- define("DBNAME", "colegio_sapiens");
- define("USER", "root");
- define("PASSWORD", "");
+
+define('DATABASE', 'teatro_ujc');
+define('HOST', 'localhost');
+define('DBUSER', 'root');
+define('DBPASS', '');
 
 try {
-    $conexao = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-} catch (PDOException $th) {
-    echo $th->getMessage();    
+    $db = new PDO ('mysql:host='.HOST.'; dbname='.DATABASE, DBUSER, DBPASS);
+    
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
-
