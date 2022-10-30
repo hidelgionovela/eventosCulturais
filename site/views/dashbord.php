@@ -28,7 +28,7 @@
                 <p>
                 é uma companhia de teatro profissional de Maputo, Moçambique fundada em 1992 por Gilberto Mendes.
                 </p>
-                <button class="btn">Sair</button>
+                <button class="btn"><a href="../index.php">Sair</a></button>
               </div>
             </div>
           </header>
@@ -41,10 +41,13 @@
       <div class="links">
         <ul>
           <li>
-            <a href="#" style="--i: 0.05s;">Home</a>
+            <a href="dashbord.php" style="--i: 0.05s;">Home</a>
           </li>
           <li>
-            <a href="#" style="--i: 0.1s;">Eventos</a>
+            <a href="eventos.php" style="--i: 0.1s;">Eventos</a>
+          </li>
+          <li>
+            <a href="cadastroUser.php" style="--i: 0.15s;">Cadastrar User</a>
           </li>
           <li>
             <a href="cadastro.php" style="--i: 0.15s;">Cadastrar Eventos</a>
