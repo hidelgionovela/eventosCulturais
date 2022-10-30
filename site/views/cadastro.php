@@ -3,66 +3,62 @@
 <head>
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registration Form</title>
-	<link rel="stylesheet" href="styles.css">
+	<title>cadastro</title>
+	<link rel="stylesheet" href="../css/stylescadastro.css">
 </head>
 <body>
 
 <div class="wrapper">
+<div>
+  <button class="out"><a href="dashbord.php">Voltar</a></button>
+</div>
     <div class="title">
-      Registration Form
+      Criar Evento
     </div>
+    <form action="../Controller/eventosController.php" method="POST">
     <div class="form">
        <div class="inputfield">
-          <label>First Name</label>
-          <input type="text" class="input">
+          <label>Nome do Evento</label>
+          <input type="text" class="input" name="nome">
        </div>  
         <div class="inputfield">
-          <label>Last Name</label>
-          <input type="text" class="input">
+          <label>Data</label>
+          <input type="date" class="input" name="data_evento">
        </div>  
        <div class="inputfield">
-          <label>Password</label>
-          <input type="password" class="input">
+          <label>Hora de Inicio</label>
+          <input type="time" class="input" name="hora_inicio">
        </div>  
       <div class="inputfield">
-          <label>Confirm Password</label>
-          <input type="password" class="input">
+          <label>Hora do fim</label>
+          <input type="time" class="input" name="hora_fim">
        </div> 
         <div class="inputfield">
-          <label>Gender</label>
-          <div class="custom_select">
-            <select>
-              <option value="">Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-       </div> 
-        <div class="inputfield">
-          <label>Email Address</label>
-          <input type="text" class="input">
+          <label>Local</label>
+          <input type="text" class="input" name="local_evento">
        </div> 
       <div class="inputfield">
-          <label>Phone Number</label>
-          <input type="text" class="input">
+          <label>Promotor</label>
+          <input type="text" class="input" name="promotor">
        </div> 
       
       <div class="inputfield">
-          <label>Postal Code</label>
-          <input type="text" class="input">
+          <label>Número de bilhetes</label>
+          <input type="number" class="input" name="numero_bilhete">
        </div> 
-      <div class="inputfield terms">
-          <label class="check">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <p>Agreed to terms and conditions</p>
-       </div> 
+       <div class="inputfield">
+          <label>Preço</label>
+          <input type="text" class="input" name="valor_evento">
+       </div>
+       <div class="inputfield">
+          <label>Cartaz do Evento</label>
+          <input type="file" class="input" name="cartaz">
+       </div>
       <div class="inputfield">
-        <input type="submit" value="Register" class="btn">
+        <input type="submit" value="Cadastrar" class="btn">
       </div>
     </div>
+    </form>
 </div>	
 	
 </body>
