@@ -166,12 +166,21 @@ form{
 	margin-bottom: 4px;
 }
 
-a{
+p{
 	display: block;
 	text-align: right;
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
+	transition: .3s;
+}
+
+.p{
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	color: rgb(252, 0, 0);
+	font-size: 1.0rem;
 	transition: .3s;
 }
 
