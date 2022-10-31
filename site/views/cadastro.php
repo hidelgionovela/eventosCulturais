@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +20,7 @@
     <div class="title">
       Criar Evento
     </div>
-    <form action="../Controller/eventosController.php" method="POST">
+    <form action="../Controller/eventosController.php" method="POST" enctype="multipart/form-data">
     <div class="form">
        <div class="inputfield">
           <label>Nome do Evento</label>
@@ -52,14 +57,21 @@
        </div>
        <div class="inputfield">
           <label>Cartaz do Evento</label>
-          <input type="file" class="input" name="cartaz">
+          <input type="file" class="input" name="cartaz" value="cartaz">
        </div>
       <div class="inputfield">
         <input type="submit" value="Cadastrar" class="btn">
       </div>
     </div>
     </form>
-</div>	
+</div>
+
+
+
+<!-- <script>
+window.alert(5 + 6);
+</script> -->
+
 	
 </body>
 </html>
