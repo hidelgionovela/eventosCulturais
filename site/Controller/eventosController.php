@@ -1,6 +1,6 @@
 <?php
 
- include __DIR__ . '../../config/conexao.php'; 
+//  include __DIR__ . '../../config/conexao.php'; 
  include __DIR__ . '../../config/crud.php'; 
 
  $nome = ''; // tex
@@ -24,8 +24,10 @@
     $promotor = $_POST['promotor'];
     $nr_bilhetes = $_POST['numero_bilhete'];
     $preco = $_POST['valor_evento'];
-    $arquivo = $_POST['cartaz'];
+    $arquivo = $_FILES['cartaz'];
     $a = 1;
+
+var_dump($_FILES["cartaz"]);
 
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["cartaz"]["name"]);
@@ -66,12 +68,14 @@
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
+      die();
     // if everything is ok, try to upload file
     } else {
       if (move_uploaded_file($_FILES["cartaz"]["tmp_name"], $target_file)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["cartaz"]["name"])). " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";
+        die();
       }
     }
     
@@ -97,6 +101,6 @@ $dados = [
 
 
 create($sql, $dados);
-header('Location:../views/dashbord.php');
+// header('Location:../views/dashbord.php');
     }
     ?>
