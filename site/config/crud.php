@@ -58,6 +58,19 @@ function delete($sql = '', $dados = []) :int {
     return $stmt->rowCount();
 }
 
+/**
+ *@return int
+ * retorna o numero de linhas afectadas
+ */
+function countRow($sql, $dados = []) {
+    global $db;
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute($dados);
+
+    return $stmt->rowCount();
+}
+
 
 
 function buscaridCli($nr)
