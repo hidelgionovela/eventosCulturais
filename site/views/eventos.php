@@ -22,8 +22,8 @@ ob_start();
 </head>
 
 <body>
-    <label style="margin:1%;" type="button" class="btn btn-secondary"><a href="CriarPost.php" style="color:aliceblue; text-decoration:none">criar novo Post</a></label><br>
-    <label style="margin:1%;" type="button" class="btn btn-danger"><a href="sair.php" style="color:aliceblue; text-decoration:none">Logout</a></label><br>
+    <!-- <label style="margin:1%;" type="button" class="btn btn-secondary"><a href="CriarPost.php" style="color:aliceblue; text-decoration:none">criar novo Post</a></label><br>
+    <label style="margin:1%;" type="button" class="btn btn-danger"><a href="sair.php" style="color:aliceblue; text-decoration:none">Logout</a></label><br> -->
 
     <center>
         <h1>Bem vindo : <?php echo $_SESSION['nome'] . " #"?>!</h1>
