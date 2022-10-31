@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,15 +25,15 @@
     <div class="form">
        <div class="inputfield">
           <label>Email</label>
-          <input type="email" name="email" class="input">
+          <input type="email" name="email" class="input" placeholder="email@exemplo.com">
        </div>  
         <div class="inputfield">
           <label>Senha</label>
-          <input type="Password" name="senha" class="input">
+          <input type="Password" name="senha" class="input" placeholder="****">
        </div>  
        <div class="inputfield">
           <label>Perfil</label>
-          <input type="text" name="perfil" class="input">
+          <input type="text" name="perfil" class="input" placeholder="admin">
        </div>  
       
       <div class="inputfield">
