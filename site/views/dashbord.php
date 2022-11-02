@@ -1,6 +1,13 @@
 <?php
 session_start();
 ob_start();
+
+
+if (!isset($_SESSION['user_id'])) {
+  $_SESSION['msg'] = "Precisa iniciar a Seccao";
+
+header("Location: ../index.php");
+} 
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +42,7 @@ ob_start();
                 <p>
                 É uma companhia de teatro profissional de Maputo, Moçambique fundada em 1992 por Gilberto Mendes.
                 </p>
-                <button class="btn"><a href="../index.php">Sair</a></button>
+                <button class="btn"><a href="../Controller/logoutController.php">Sair</a></button>
               </div>
             </div>
           </header>
@@ -54,10 +61,10 @@ ob_start();
             <a href="eventos.php" style="--i: 0.1s;">Eventos</a>
           </li>
           <li>
-            <a href="cadastroUser.php" style="--i: 0.15s;">Cadastrar User</a>
+            <a href="cadastroUser.php" style="--i: 0.15s;">Criar User</a>
           </li>
           <li>
-            <a href="cadastro.php" style="--i: 0.15s;">Cadastrar Eventos</a>
+            <a href="cadastro.php" style="--i: 0.15s;">Criar Eventos</a>
           </li>
         </ul>
       </div>
