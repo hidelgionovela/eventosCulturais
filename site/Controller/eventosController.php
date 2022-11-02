@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //  include __DIR__ . '../../config/conexao.php'; 
  include __DIR__ . '../../config/crud.php'; 
@@ -24,10 +25,11 @@
     $promotor = $_POST['promotor'];
     $nr_bilhetes = $_POST['numero_bilhete'];
     $preco = $_POST['valor_evento'];
-    $arquivo = $_FILES['cartaz'];
-    $a = 1;
+    $arquivo = $_FILES["cartaz"]["name"];
+    $a = $_SESSION['user_id'];
 
-var_dump($_FILES["cartaz"]);
+var_dump($a);
+echo "<hr>";
 
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["cartaz"]["name"]);
@@ -101,6 +103,6 @@ $dados = [
 
 
 create($sql, $dados);
-// header('Location:../views/dashbord.php');
+header('Location:../views/dashbord.php');
     }
     ?>
