@@ -15,9 +15,7 @@ ob_start();
 
 
 <div class="wrapper">
-<div>
-  <button class="out"><a href="dashbord.php">Voltar</a></button>
-</div>
+
     <div class="title">
       Criar Novo User
     </div>
@@ -37,6 +35,7 @@ ob_start();
        </div>  
       
       <div class="inputfield">
+      <button class="btn2"><a href="dashbord.php">Voltar</a></button>
         <input type="submit" value="Cadastrar" class="btn">
       </div>
     </div>
