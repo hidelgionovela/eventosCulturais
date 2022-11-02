@@ -97,8 +97,8 @@ function buscarutilizador($nr)
         
         $res = array();
         global $db;
-        $cmd = $db->prepare("SELECT nome FROM utilizador WHERE id = :nr");
-        $cmd->bindValue(":nr", $nr);
+        $cmd = $db->prepare("SELECT promotor FROM evento WHERE codigo = :codigo");
+        $cmd->bindValue(":codigo", $nr);
         $cmd->execute();
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         for ($i = 0; $i < count($res); $i++) {
