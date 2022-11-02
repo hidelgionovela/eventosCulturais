@@ -46,15 +46,25 @@ ob_start();
 						<input type="password" class="input" name="senha" require>
 					</div>
 				</div>
-				<p class="p">
+				<p class="error">
 				<?php
 				if (isset($_SESSION['loginError'])) {
 					$a = $_SESSION['loginError'] ;
 					echo "$a" ;
 					unset($_SESSION['loginError']);
+				}
+				?> 
+			</p>
+			<p class="sucesso">
+				<?php
+				if (isset($_SESSION['msg'])) {
+					$a = $_SESSION['msg'] ;
+					echo "$a" ;
+					unset($_SESSION['msg']);
 				} 
 				?> 
 			</p>
+			
 			 <?php
 			if (!isset($_SESSION['loginError'])) {
 				echo " <p>Área Administrativa</p> " ;
