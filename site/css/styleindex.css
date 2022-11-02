@@ -175,11 +175,20 @@ p{
 	transition: .3s;
 }
 
-.p{
+.error{
 	display: block;
 	text-align:center;
 	text-decoration: none;
 	color: rgb(252, 0, 0);
+	font-size: 1.0rem;
+	transition: .3s;
+}
+
+.sucesso{
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	color: rgb(10, 151, 73);
 	font-size: 1.0rem;
 	transition: .3s;
 }
