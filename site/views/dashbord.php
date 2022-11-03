@@ -37,7 +37,7 @@ header("Location: ../index.php");
           <header>
             <div class="overlay">
               <div class="inner">
-              <img src="../img/download.jpg"  style="width: 80px;" alt="">
+              <img src="../img/download.jpg"  style="width: 80px; border-radius:5%;" alt="logo">
                 <h2 class="title">Companhia de Teatro Gungu</h2>
                 <p>
                 É uma companhia de teatro profissional de Maputo, Moçambique fundada em 1992 por Gilberto Mendes.
