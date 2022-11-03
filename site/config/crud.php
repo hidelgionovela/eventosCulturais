@@ -58,10 +58,7 @@ function delete($sql = '', $dados = []) :int {
     return $stmt->rowCount();
 }
 
-/**
- *@return int
- * retorna o numero de linhas afectadas
- */
+
 function countRow($sql, $dados = []) {
     global $db;
 
@@ -73,24 +70,6 @@ function countRow($sql, $dados = []) {
 
 
 
-function buscaridCli($nr)
-    {
-        
-        $res = array();
-        global $db;
-        $cmd = $db->prepare("SELECT id FROM utilizador WHERE nome = :nr");
-        $cmd->bindValue(":nr", $nr);
-        $cmd->execute();
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($res); $i++) {
-            foreach ($res[$i] as $k => $v) {
-                    $id = $v;
-            }
-        }
-
-        return $id;
-       
-}
 
 function buscarutilizador($nr)
     {
@@ -110,98 +89,3 @@ function buscarutilizador($nr)
         return $id;
        
 }
-
-
-
-function buscaCliente()
-{
-
-    $res = array();
-    global $db;
-    $cmd = $db->prepare("SELECT id,nome FROM utilizador");
-    $cmd->execute();
-    $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-    return $res;
-}
-
-
-function buscaridpost($nr)
-    {
-        
-        $res = array();
-        global $db;
-        $cmd = $db->prepare("SELECT id FROM post WHERE nome = :nr");
-        $cmd->bindValue(":nr", $nr);
-        $cmd->execute();
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($res); $i++) {
-            foreach ($res[$i] as $k => $v) {
-                    $id = $v;
-            }
-        }
-
-        return $id;
-       
-}
-
-
-
-function buscartitulopost($nr)
-    {
-        
-        $res = array();
-        global $db;
-        $cmd = $db->prepare("SELECT titulo FROM post WHERE id = :nr");
-        $cmd->bindValue(":nr", $nr);
-        $cmd->execute();
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($res); $i++) {
-            foreach ($res[$i] as $k => $v) {
-                    $id = $v;
-            }
-        }
-
-        return $id;
-       
-}
-
-function buscarComentador($nr)
-    {
-        
-        $res = array();
-        global $db;
-        $cmd = $db->prepare("SELECT u.nome FROM comentarios c INNER JOIN utilizador u on c.utilizador = u.id  WHERE c.id = :nr");
-        $cmd->bindValue(":nr", $nr);
-        $cmd->execute();
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($res); $i++) {
-            foreach ($res[$i] as $k => $v) {
-                    $id = $v;
-            }
-        }
-
-        return $id;
-       
-}
-
-function buscarComentarioPost($nr)
-    {
-        
-        $res = array();
-        global $db;
-        $cmd = $db->prepare("SELECT post FROM comentarios WHERE id = :nr");
-        $cmd->bindValue(":nr", $nr);
-        $cmd->execute();
-        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($res); $i++) {
-            foreach ($res[$i] as $k => $v) {
-                    $id = $v;
-            }
-        }
-
-        return $id;
-       
-}
-
-
-
