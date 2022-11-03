@@ -38,12 +38,24 @@ ob_start();
             echo "<h2>" . "Total de Eventos Criados:  " . "#" . $k['COUNT(*)'] . "</h2>";
         }
         ?>
+        <img src="../img/download.jpg"  style="width: 80px; border-radius:5%;" alt="logo">
     </center>
 
     <?php
     $dados = read("Select * from evento ORDER BY codigo DESC");
     ?>
     <hr>
+    <center>
+    <p style="color: green;">
+				<?php
+				if (isset($_SESSION['evento'])) {
+					$a = $_SESSION['evento'] ;
+					echo "$a" ;
+					unset($_SESSION['evento']);
+				} 
+				?> 
+	</p>
+    </center>
     <?php foreach ($dados as $a) {  ?>
 
         <div  style="margin-bottom:20px; padding: 20px; border-bottom: 1px solid lightgray; display: block; text-align: justify;">
@@ -61,34 +73,34 @@ ob_start();
 
             <div class="col-lg-8 col-sm-6 texto">
                 <label>
-                    Nome do Evento: <span style="color: blue"><?php echo $a['nome']; ?></span>
+                    Nome do Evento: <span><?php echo $a['nome']; ?></span>
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>
-                    Promotor do Evento: <span style="color: blue"><?php echo $a['nome']; ?></span>
+                    Promotor do Evento: <span><?php echo $a['nome']; ?></span>
                 </label><br>
                 <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                 <label>
-                    Hora de Inicio: <span style="color: blue"><?php echo $a['hora_inicio']; ?></span>
+                    Hora de Inicio: <span><?php echo $a['hora_inicio']; ?></span>
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
                 <label>
-                    Hora de Fim: <span style="color: blue"><?php echo $a['hora_fim']; ?></span>
+                    Hora de Fim: <span><?php echo $a['hora_fim']; ?></span>
                 </label>
                 <br>
                 <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                 <label>
-                    Data do Evento: <span style="color: blue"><?php echo $a['data_evento']; ?></span>
+                    Data do Evento: <span><?php echo $a['data_evento']; ?></span>
                 </label><br>
                 <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                 <label>
-                    Preco do Bilhete: <span style="color: blue"><?php echo $a['valor_evento']; ?>MT</span>
+                    Preco do Bilhete: <span><?php echo $a['valor_evento']; ?>MT</span>
                 </label><br>
                 <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                 <label>
-                    Numero de bilhetes: <span style="color: blue"><?php echo $a['numero_bilhete']; ?></span>
+                    Numero de bilhetes: <span><?php echo $a['numero_bilhete']; ?></span>
                 </label><br>
                 <label>
-                    Local: <span style="color: blue"><?php echo $a['local_evento']; ?></span>
+                    Local: <span><?php echo $a['local_evento']; ?></span>
                 </label>
                 
                 <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
