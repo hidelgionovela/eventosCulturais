@@ -28,13 +28,22 @@ session_start();
     $arquivo = $_FILES["cartaz"]["name"];
     $a = $_SESSION['user_id'];
 
-var_dump($a);
-echo "<hr>";
+// var_dump($a);
+// echo "<hr>";
 
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["cartaz"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    $temporario = $_FILES['cartaz']['tmp_name'];
+    $aaa = pathinfo($_FILES["cartaz"]["name"],PATHINFO_EXTENSION);
+    $novoNome = uniqid().".$aaa";
+
+
+    var_dump(basename($_FILES["cartaz"]["name"]));
+    echo "<hr>";
+    echo date("Y h:i:s ");
     
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
@@ -57,6 +66,8 @@ echo "<hr>";
     // Check file size
     if ($_FILES["cartaz"]["size"] > 500000) {
       echo "Sorry, your file is too large.";
+      $_SESSION['imgError'] = "Sorry, your file is too large.!";
+      //  header("Location: ../views/cadastro.php");
       $uploadOk = 0;
     }
     
@@ -64,17 +75,23 @@ echo "<hr>";
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
       echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $_SESSION['imgError'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed..!";
+      // header("Location: ../views/cadastro.php");
       $uploadOk = 0;
     }
     
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
+      $_SESSION['imgErrorr'] = "Sorry, your file was not uploaded.!";
+      header("Location: ../views/cadastro.php");
       die();
     // if everything is ok, try to upload file
     } else {
-      if (move_uploaded_file($_FILES["cartaz"]["tmp_name"], $target_file)) {
+      if (move_uploaded_file($temporario, $target_dir.$novoNome)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["cartaz"]["name"])). " has been uploaded.";
+        // $_SESSION['imgSucess'] = "Good, has been uploaded.!";
+        // header("Location: ../views/cadastro.php");
       } else {
         echo "Sorry, there was an error uploading your file.";
         die();
@@ -94,15 +111,19 @@ $dados = [
         'numero_bilhete' => $nr_bilhetes,
         'local_evento' => $local,
         'promotor' => $promotor,
-        'cartaz' => $arquivo,
+        'cartaz' => $novoNome,
         'valor_evento' => $preco,
         'admin_id' => $a
         
 
 ];
 
+if (!isset($_SESSION['imgErrorr'])) {
+  $_SESSION['evento'] = "Evento Criado com Sucesso";
 
 create($sql, $dados);
-header('Location:../views/dashbord.php');
+header('Location:../views/eventos.php');
+} 
+
     }
     ?>
