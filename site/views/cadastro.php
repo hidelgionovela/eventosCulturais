@@ -59,21 +59,29 @@ ob_start();
                <label>Cartaz do Evento</label>
                <input type="file" class="input" name="cartaz" value="cartaz">
             </div>
-
+            <center>
+               <p style="color: red;">
+                  <?php
+                  if (isset($_SESSION['imgErrorr'])) {
+                     $a = $_SESSION['imgError'];
+                     $b = $_SESSION['imgErrorr'];
+                     echo "$a";
+                     echo "<br>";
+                     echo "$b";
+                     unset($_SESSION['imgError']);
+                     unset($_SESSION['imgErrorr']);
+                  }
+                  ?>
+               </p>
+            </center><br>
             <div class="inputfield">
-            <button class="btn2"><a href="dashbord.php">Voltar</a></button>
+               <button class="btn2"><a href="dashbord.php">Voltar</a></button>
                <!-- <input type="button" value="Cancelar" class="btn2"> -->
                <input type="submit" value="Cadastrar" class="btn">
             </div>
          </div>
       </form>
    </div>
-
-
-
-   <!-- <script>
-window.alert(5 + 6);
-</script> -->
 
 
 </body>
