@@ -9,85 +9,81 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleeventos.css">
     <title>Ver Bilhetes</title>
 </head>
 
-<body>
-    <label style="margin:1%;" type="button" class="btn btn-danger"><a href="verPost.php" style="color:aliceblue; text-decoration:none">Voltar</a></label><br>
-    <center>
-        <h1>Lista dos bilhetes comprados: <?php //echo $_SESSION['nome'] . " #" . $_SESSION['id']; ?>!</h1>
-        <h3>Nome do evento <?php //echo $_SESSION['perfil']; ?>!</h3>
-    </center>
+<body class="container">
+    <?php include __DIR__ . '../../config/crud.php';
+    $id = $_GET['id'];
+    
 
-    <?php include __DIR__ . '/conf/DB.php'; ?>
-    <?php //if ($_SESSION['perfil'] === "admin" || $_SESSION['perfil'] === "administrador" || $_SESSION['perfil'] === "Administrador" || $_SESSION['perfil'] === "Admin") { ?>
-        <?php
+    $dados = read("Select * from bilhete INNER JOIN espectador ON espectador.espectador_id = bilhete.espectador_id where bilhete.evento_id = $id;");
 
-
-
-        $id = $_GET['id'];
-
-
-        
-        $dados = read("Select * from comentarios where post = $id ;");
-        ?>
+    // var_dump($dados);
+    ?>
+    <div class="divCentral">
         <center>
-            <h2 style="color:brown">Comentarios do post com titulo: <?php echo buscartitulopost($id)  ?> </h2>
+            <h1>Lista venda de Bilhetes</h1>
+            <h3>Nome do evento: <?php $dado = read("Select nome from evento where codigo = $id");
+             foreach ($dado as $a) {  
+            echo $a['nome'];}
+                                ?></h3>
+
+            <?php $h = read("SELECT COUNT(*) FROM bilhete where bilhete.evento_id = $id;");
+            foreach ($h as $k) {
+                echo "<h2>" . "Total de Vendas:  " . "#" . $k['COUNT(*)'] . "</h2>";
+            }
+            ?>
+            <img src="../img/download.jpg" style="width: 80px; border-radius:5%;" alt="logo">
+            <hr>
         </center>
-
-        <?php foreach ($dados as $a) {  ?>
-
-            <div style="margin-bottom:20px; padding: 20px; border-bottom: 1px solid lightgray; display: block; text-align: justify;">
-
-                <h3 style="color:blueviolet"><?php echo "Comentador: #"; ?> <?php echo buscarutilizador($a['utilizador']); ?></h3>
-
-                <p>
-                    <label>
-                        Comentario: <span style="color: green"><?php echo $a['comentario']; ?></span>
-                    </label><br>
-
-                    <label>
-                        Email do comentador: <span style="color: blue"><?php echo $a['email']; ?></span>
-                    </label><br>
-                    <label>
-                        Aprovacao: <span style="color: blue"><?php echo $a['aprovado']; ?></span>
-                    </label>
+        <br><br>
 
 
-                </p>
-                <!-- <p><a href="criarcomentario.php" style="text-align: right">Comentar</a><br>
-    <a href="Vercomentario.php" style="text-align: right">ver comentarios</a></p> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Espectador</th>
+                    <th>Estado bilhete</th>
+                    <th>Quantidade</th>
+                    <th>Tipo de bilhete</th>
+                    <th>Data da compra</th>
+                    <th>Numero de telefone</th>
+                    <th>Bairro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $quant = 0;
+                foreach ($dados as $a) {  ?>
 
-
-                <p style="text-align: right;">
-
-                    <?php if ($a['aprovado'] === "sim") { ?>
-                        <label type="button" class="btn btn-primary"><a href="responder.php?id=<?php echo $a['id']; ?>" style="color:aliceblue; text-decoration:none">Responder</a></label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <label type="button" class="btn btn-info"><a href="verRespostas.php?id=<?php echo $a['id']; ?>" style="color:aliceblue; text-decoration:none">Ver Respostas</a></label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <?php  }
-
-
-                    if (($_SESSION['perfil'] === "admin" || $_SESSION['perfil'] === "administrador" || $_SESSION['perfil'] === "Administrador" || $_SESSION['perfil'] === "Admin") && ($a['aprovado'] == "não")) { ?>
-                        <label type="button" class="btn btn-success">
-                            <?php if ($a['aprovado'] === "nao" || $a['aprovado'] === "não" || $a['aprovado'] === "Não") { ?>
-                                <a href="aprovar.php?id=<?php echo $a['id']; ?>" style="color:aliceblue; text-decoration:none">Aprovar</a></label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php } ?>
-                    <label type="button" class="btn btn-danger">
-                        <a href="delete.php?id=<?php echo $a['id']; ?>" style="color:aliceblue; text-decoration:none">Apagar Comentario</a></label>
-                <?php } ?>
-
-
-
-                </p>
-            </div>
-        <?php }?>
-  
-    <!-- <a href="criarcomentario.php" style="text-align: right">Voltar</a> -->
+                    <tr>
+                        <td><?php echo $a['nome']; ?></td>
+                        <td><?php echo $a['estado']; ?></td>
+                        <td><?php echo $a['quantidade']; ?></td>
+                        <td><?php echo $a['tipo_bilhete']; ?></td>
+                        <td><?php echo $a['data_compra']; ?></td>
+                        <td><?php echo $a['telefone']; ?></td>
+                        <td><?php echo $a['bairro']; ?></td>
+                    </tr>
+                <?php
+                    $quant = $quant + $a['quantidade'];
+                } ?>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td>-</td>
+                    <td><?php echo $quant; ?></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h5 style="padding: 1%;">admin: </h5>
+    </div>
 </body>
 
 </html>
