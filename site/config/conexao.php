@@ -4,8 +4,7 @@
  * Instancia conexao com Mysql Database
  */
 
-
-define('DATABASE', 'teatro_ujc');
+define('DATABASE', 'ujc_teatro');
 define('HOST', 'localhost');
 define('DBUSER', 'root');
 define('DBPASS', '');
