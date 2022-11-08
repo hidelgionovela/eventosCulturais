@@ -10,10 +10,24 @@ ob_start();
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>cadastro</title>
+   <link rel="icon" type="image/png" sizes="16x16" href="../img/download.jpg">
    <link rel="stylesheet" href="../css/stylescadastro.css">
+   <link rel="stylesheet" href="../css/menu.css">
 </head>
 
 <body>
+
+   <div class="header__nav">
+      <img src="../img/download.jpg" style="width: 60px; border-radius:5%; float: left; margin-left:10px; margin-top:5px;" alt="logo">
+      <h2 style="float: left">Cadastrar Eventos</h2>
+      <nav class="header__menu mobile-menu">
+         <ul>
+            <li class="active"><a href="dashbord.php">Home</a></li>
+            <li><a href="cadastroUser.php">Criar User</a></li>
+            <li><a href="eventos.php">Ver Eventos</a></li>
+         </ul>
+      </nav>
+   </div>
 
    <div class="wrapper">
 
@@ -59,6 +73,7 @@ ob_start();
                <label>Cartaz do Evento</label>
                <input type="file" class="input" name="cartaz" value="cartaz">
             </div>
+
             <center>
                <p style="color: red;">
                   <?php
@@ -74,15 +89,14 @@ ob_start();
                   ?>
                </p>
             </center><br>
+
             <div class="inputfield">
-               <button class="btn2"><a href="dashbord.php">Voltar</a></button>
-               <!-- <input type="button" value="Cancelar" class="btn2"> -->
-               <input type="submit" value="Cadastrar" class="btn">
+               <!-- <button class="btn2"><a href="dashbord.php">Voltar</a></button> -->
+               <input type="submit" value="Criar" class="btn">
             </div>
          </div>
       </form>
    </div>
-
 
 </body>
 
