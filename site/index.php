@@ -10,6 +10,7 @@ ob_start();
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="css/styleindex.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="16x16" href="./img/download.jpg">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
