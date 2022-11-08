@@ -16,6 +16,7 @@ header("Location: ../index.php");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashbord</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/download.jpg">
     <link rel="stylesheet" href="../css/styledashbord.css" />
   </head>
   <body>
