@@ -73,7 +73,14 @@ ob_start();
                <label>Cartaz do Evento</label>
                <input type="file" class="input" name="cartaz" value="cartaz">
             </div>
+            <div class="inputfield">
+            <label>Descricao</label>
+               <textarea name="descricao" class="input" rows="4" cols="30">
+                  
+               </textarea>
+            </div>
 
+            
             <center>
                <p style="color: red;">
                   <?php
