@@ -45,14 +45,10 @@ ob_start();
           <label>Senha</label>
           <input type="Password" name="senha" class="input" placeholder="****">
         </div>
-        <div class="inputfield">
+        <!-- <div class="inputfield">
           <label>Perfil</label>
           <input type="text" name="perfil" class="input" placeholder="admin">
-        </div>
-        <div class="inputfield">
-          <label>Perfil</label>
-          <input type="text" name="perfil" class="input" placeholder="admin">
-        </div>
+        </div> -->
 
         <div class="inputfield">
           <!-- <button class="btn2"><a href="dashbord.php">Voltar</a></button> -->
