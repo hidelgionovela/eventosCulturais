@@ -20,7 +20,7 @@ a{
   min-height: 100vh;
   width: 100%;
   background-color: #fec107;
-  background-image: linear-gradient(110deg, #fec107 0%, rgb(43, 51, 59) 74%);
+  background-image: linear-gradient(110deg, #fec107 0%, rgb(43, 51, 59) 44%);
   overflow-x: hidden;
   transform-style: preserve-3d;
 }
