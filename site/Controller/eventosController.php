@@ -1,33 +1,25 @@
 <?php
+
 session_start();
 
 //  include __DIR__ . '../../config/conexao.php'; 
 include __DIR__ . '../../config/crud.php';
+include __DIR__ . '../../Model/Evento.php';
 
-$nome = ''; // tex
-$data = ''; // date
-$hora_inicio = ''; //time
-$hora_fim = ''; //time
-$local = ''; //text
-$promotor = ''; //text
-$nr_bilhetes = ''; //number
-$preco = ''; //text
-$arquivo = ''; //text
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
-  $nome = $_POST['nome'];
-  $data = $_POST['data_evento'];
-  $hora_inicio = $_POST['hora_inicio'];
-  $hora_fim = $_POST['hora_fim'];
-  $local = $_POST['local_evento'];
-  $promotor = $_POST['promotor'];
-  $nr_bilhetes = $_POST['numero_bilhete'];
-  $preco = $_POST['valor_evento'];
-  $arquivo = $_FILES["cartaz"]["name"];
-  $a = $_SESSION['user_id'];
-
+$evento = new Evento();
+$evento->setNome($_POST['nome']);
+$evento->setDataEvento($_POST['data_evento']) ;
+$evento->setHoraInicio($_POST['hora_inicio']) ;
+$evento->setHoraFim($_POST['hora_fim']) ;
+$evento->setLocalEvento($_POST['local_evento']) ;
+$evento->setPromotor($_POST['promotor']) ;
+$evento->setNumeroBilhete($_POST['numero_bilhete']) ;
+$evento->setValorEvento($_POST['valor_evento']) ;
+$evento->setAdmin_id($_SESSION['user_id']) ;
+$evento->setDescricao($_POST['descricao']) ;
 
   $target_dir = "../../webapp/img/";
   $target_file = $target_dir . basename($_FILES["cartaz"]["name"]);
@@ -35,8 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
   $temporario = $_FILES['cartaz']['tmp_name'];
-  $aaa = pathinfo($_FILES["cartaz"]["name"], PATHINFO_EXTENSION);
-  $novoNome = uniqid() . ".$aaa";
+  $extensao = pathinfo($_FILES["cartaz"]["name"], PATHINFO_EXTENSION);
+  $novoNome = uniqid() . ".$extensao";
+  $evento->setCartaz($novoNome) ;
 
   // Check if image file is a actual image or fake image
   if (isset($_POST["submit"])) {
@@ -90,19 +83,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
 
-  $sql = "INSERT INTO evento (nome,hora_inicio,hora_fim,data_evento,numero_bilhete,local_evento,promotor,cartaz,valor_evento,admin_id) 
-  VALUES (:nome,:hora_inicio,:hora_fim,:data_evento,:numero_bilhete,:local_evento,:promotor,:cartaz,:valor_evento,:admin_id)";
+  $sql = "INSERT INTO evento (nome,hora_inicio,hora_fim,data_evento,numero_bilhete,local_evento,promotor,cartaz,valor_evento,admin_id,descricao) 
+  VALUES (:nome,:hora_inicio,:hora_fim,:data_evento,:numero_bilhete,:local_evento,:promotor,:cartaz,:valor_evento,:admin_id,:descricao)";
   $dados = [
-    'nome' => $nome,
-    'hora_inicio' => $hora_inicio,
-    'hora_fim' => $hora_fim,
-    'data_evento' => $data,
-    'numero_bilhete' => $nr_bilhetes,
-    'local_evento' => $local,
-    'promotor' => $promotor,
-    'cartaz' => $novoNome,
-    'valor_evento' => $preco,
-    'admin_id' => $a
+    'nome' => $evento->getNome(),
+    'hora_inicio' => $evento->getHoraInicio(),
+    'hora_fim' => $evento->getHorafim(),
+    'data_evento' => $evento->getDataEvento(),
+    'numero_bilhete' => $evento->getNumeroBilhete(),
+    'local_evento' => $evento->getLocalEvento(),
+    'promotor' => $evento->getPromotor(),
+    'cartaz' => $evento->getCartaz(),
+    'valor_evento' => $evento->getValorEvento(),
+    'admin_id' => $evento->getAdmin_id(),
+    'descricao' => $evento->getDescricao()
   ];
 
 
