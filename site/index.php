@@ -27,7 +27,7 @@ ob_start();
 		</div>
 		<div class="login-content">
 			<form action="./Controller/loginControllerr.php" method="POST">
-				<img src="img/avatar.svg">
+				<img src="img/download.jpg">
 				<h2 class="title">Bem-Vindo</h2>
 				<div class="input-div one">
 					<div class="i">
