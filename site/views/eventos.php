@@ -25,7 +25,7 @@ ob_start();
     include __DIR__ . '../../config/crud.php';
     ?>
 
-    <div class="header__nav" >
+    <div class="header__nav">
         <img src="../img/download.jpg" style="width: 70px; border-radius:5%; float: left; margin-left:10px; margin-top:5px;" alt="logo">
         <h3 style="float: left">Lista de Eventos</h3>
         <nav class="header__menu mobile-menu" style="padding: 18px 0 27px;">
